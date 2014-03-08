@@ -27,10 +27,10 @@ import org.springframework.ws.soap.security.wss4j.callback.SimplePasswordValidat
  * @author Emmanuel
  */
 @Configuration
-@ImportResource("classpath:ws-servlet.xml")
+//@ImportResource("classpath:ws-servlet.xml")
 public class AppConfig {
 
-    /*
+    
     @Bean(name = "marshallPayloadMethodProcessor")
     public GenericMarshallingMethodEndpointAdapter marshallPayloadMethodProcessor() {
         GenericMarshallingMethodEndpointAdapter gm = new GenericMarshallingMethodEndpointAdapter();
@@ -44,7 +44,7 @@ public class AppConfig {
         return new XmlBeansMarshaller();
     }
 
-    //@Bean
+    @Bean
     public Wsdl11Definition custService() {
         DefaultWsdl11Definition definition = new DefaultWsdl11Definition();
         definition.setLocationUri("/ws/services/custservice");
@@ -54,12 +54,12 @@ public class AppConfig {
         return definition;
     }
 
-    //@Bean
+    @Bean
     public Resource[] schemaResources() {
         return new ClassPathResource[]{new ClassPathResource("/schemas/Customer.xsd")};
     }
 
-    //@Bean
+    @Bean
     public XsdSchemaCollection schemaCollection() {
         CommonsXsdSchemaCollection collection = new CommonsXsdSchemaCollection();
         collection.setXsds(schemaResources());
@@ -67,7 +67,7 @@ public class AppConfig {
         return collection;
     }
     
-    //@Bean
+    @Bean
     public PayloadValidatingInterceptor validatingInterceptor(){
         PayloadValidatingInterceptor pvi = new PayloadValidatingInterceptor();
         pvi.setSchema(schemaResources()[0]);
@@ -76,6 +76,7 @@ public class AppConfig {
         return pvi;
     }
     
+    /*
     //@Bean
     public Wss4jSecurityInterceptor wss4jSecurityInterceptor() {
         Wss4jSecurityInterceptor wss4j = new Wss4jSecurityInterceptor();
